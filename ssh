@@ -1,0 +1,2 @@
+#!/bin/bash
+ssh ryan@192.168.10.2
