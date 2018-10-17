@@ -35,7 +35,7 @@ $(function(){
             data = JSON.parse(data);
             // Show results via ajax
             data.forEach((e)=>{
-                if(table == 'teacher') $salaryCell = "<td>" +e.salary+" €/hr</td>  ";
+                if(table == 'teacher') salaryCell = "<td>" +e.salary+" €/hr</td>  ";
                 var tr = document.createElement('tr');
                 tr.innerHTML = "<td><input type='checkbox' /></td>  \
                 <td> "+e.id+"</td>   \
