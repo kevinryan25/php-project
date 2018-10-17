@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/view/css/normalize.css" />
     <link rel="stylesheet" href="/view/fontawesome/css/fontawesome-all.min.css" />
     <script src="/view/scripts/jquery-3.2.1.slim.min.js"></script>
+    <script src="/view/scripts/ajax.js"></script>
     <script src="/view/scripts/ui.js"></script>
 </head>
 

@@ -11,19 +11,10 @@
 </nav>
 <section>
     <div id="row-count">
-        <p><span>Afficher</span><select>
-                <option>10</option>
-                <option>25</option>
-                <option>50</option>
-                <option>100</option>
-            </select><span>résultats</span></p>
+        <?php resultsperPage(); ?>
     </div>
     <div id="pagination">
-        <div class="previous"><button class="btn btn-secondary"><i class="fas fa-angle-left"></i></button></div>
-        <div class="pages"><span class="btn btn-secondary active">1</span><span class="btn btn-secondary">2</span><span
-                class="btn btn-secondary">3</span><span class="btn btn-secondary disabled">...</span><span class="btn btn-secondary">23</span><span
-                class="btn btn-secondary">24</span></div>
-        <div class="next"><button class="btn btn-secondary"><i class="fas fa-angle-right"></i></button></div>
+        <?php pagination("teacher"); ?>
     </div>
     <div id="selection-controls"><button class="btn btn-tertiary"><i class="icon fas fa-trash-alt"></i><span>Supprimer
                 la sélection</span></button><button class="btn btn-primary"><i class="icon fas fa-plus"></i><span>Ajouter
@@ -43,10 +34,6 @@
         </tbody>
     </table>
     <div id="pagination">
-        <div class="previous"><button class="btn btn-secondary"><i class="fas fa-angle-left"></i></button></div>
-        <div class="pages"><span class="btn btn-secondary active">1</span><span class="btn btn-secondary">2</span><span
-                class="btn btn-secondary">3</span><span class="btn btn-secondary disabled">...</span><span class="btn btn-secondary">23</span><span
-                class="btn btn-secondary">24</span></div>
-        <div class="next"><button class="btn btn-secondary"><i class="fas fa-angle-right"> </i></button></div>
+        <?php pagination("subject"); ?>
     </div>
 </section>

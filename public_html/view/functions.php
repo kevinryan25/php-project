@@ -2,7 +2,13 @@
 function printTeachers(){
     global $DB;
 
-    $data = $DB->getData("SELECT * FROM teacher");
+    global $resultsPerPage;
+    global $currentPage;
+
+
+    $offset = $currentPage * $resultsPerPage;
+    $limit = $resultsPerPage;
+    $data = $DB->getData("SELECT * FROM teacher LIMIT $limit OFFSET $offset");
     foreach($data as $e){
     
     ?><tr>
@@ -20,8 +26,12 @@ function printTeachers(){
 
 function printSubjects(){
     global $DB;
+    global $resultsPerPage;
+    global $currentPage;
 
-    $data = $DB->getData("SELECT * FROM subject");
+    $offset = $currentPage * $resultsPerPage;
+    $limit = $resultsPerPage;
+    $data = $DB->getData("SELECT * FROM subject LIMIT $limit OFFSET $offset");
     foreach($data as $e){
     
     ?><tr>
@@ -35,16 +45,30 @@ function printSubjects(){
     }
 }
 
-function resultsPerPage($table){
-    $resultsPerPage = 10;
+$resultsPerPage;
+function resultsPerPage(){
+    global $resultsPerPage;
+    $items = array(10, 25, 50, 100);
+    $shown = isset($_GET['shown'])?$_GET['shown']:$items[0];
+    $resultsPerPage = $shown;
+
+    echo "<p><span>Afficher</span><select class='resultsperpage'>";
+    foreach($items as $e){
+        $attr = ($e == $shown)?'selected':'';
+        echo "<option $attr>$e</option>";
+    }
+    echo "</select><span>résultats</span></p>";
+
 }
 
 /**
  * Afficher le menu de pagination (précédent - 12345 - suivant)
  */
+$currentPage;
 function pagination($table){
     global $DB;
-    $resultsPerPage = 10;
+    global $resultsPerPage;
+    global $currentPage;
 
     $data = $DB->getData("SELECT COUNT(*) as len FROM $table");
     $len = $data[0][0];
@@ -54,7 +78,7 @@ function pagination($table){
     $dotted = false;
     echo '<div class="previous">';
     if($currentPage > 0)
-        echo '<a class="btn btn-secondary" href="?page='.($currentPage-1).'"><i class="fas fa-angle-left"></i></a>';
+        echo '<a class="btn btn-secondary" href="?page='.($currentPage-1).'&shown='.$resultsPerPage.'"><i class="fas fa-angle-left"></i></a>';
     echo '</div>';
     echo '<div class="pages">';
     for($i = 0; $i < $pages; $i++){
@@ -63,12 +87,12 @@ function pagination($table){
             if($i == $currentPage){
                 echo "<span class='btn btn-secondary active'>$p</span>";
             }else{
-                echo "<a class='btn btn-secondary' href='?page=$i'>$p</a>";
+                echo "<a class='btn btn-secondary' href='?page=$i&shown=$resultsPerPage'>$p</a>";
             }
         }else if($i < 3){
-            echo "<a class='btn btn-secondary' href='?page=$i'>$p</a>";
+            echo "<a class='btn btn-secondary' href='?page=$i&shown=$resultsPerPage'>$p</a>";
         }else if($i+2 >= $pages){
-            echo "<a class='btn btn-secondary' href='?page=$i'>$p</a>";
+            echo "<a class='btn btn-secondary' href='?page=$i&shown=$resultsPerPage'>$p</a>";
         }else{
             if($dotted) continue;
             echo "<span class='btn btn-secondary btn-disabled'>...</span>";
@@ -81,5 +105,5 @@ function pagination($table){
 
     echo '<div class="next">';
     if($currentPage+1 < $pages)
-        echo '<a class="btn btn-secondary" href="?page='.($currentPage+1).'"><i class="fas fa-angle-right"></i></a>';
+        echo '<a class="btn btn-secondary" href="?page='.($currentPage+1).'&shown='.$resultsPerPage.'"><i class="fas fa-angle-right"></i></a>';
     echo '</div>';}

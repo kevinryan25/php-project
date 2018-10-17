@@ -4,19 +4,14 @@
         <li><button class="btn btn-light"><i class="icon fas fa-upload"></i><span>Importer</span></button></li>
         <li><button class="btn btn-light"><i class="icon fas fa-upload"></i><span>Exporter</span></button></li>
         <li>
-            <form class="searchbar"><input class="control" type="search" placeholder="Rechercher par nom" /><button
+            <form class="searchbar"><input class="control" type="search" placeholder="Rechercher par nom ou par matricule" /><button
                     class="btn"><i class="fas fa-search"></i></button></form>
         </li>
     </ul>
 </nav>
 <section>
     <div id="row-count">
-        <p><span>Afficher</span><select>
-                <option>10</option>
-                <option>25</option>
-                <option>50</option>
-                <option>100</option>
-            </select><span>résultats</span></p>
+        <?php resultsperPage(); ?>
     </div>
     <div id="pagination">
         <?php pagination("subject"); ?>
@@ -37,11 +32,7 @@
             <?php printSubjects(); ?>
         </tbody>
     </table>
-    <div id="pagination">
-        <div class="previous"><button class="btn btn-secondary"><i class="fas fa-angle-left"></i></button></div>
-        <div class="pages"><span class="btn btn-secondary active">1</span><span class="btn btn-secondary">2</span><span
-                class="btn btn-secondary">3</span><span class="btn btn-secondary disabled">...</span><span class="btn btn-secondary">23</span><span
-                class="btn btn-secondary">24</span></div>
-        <div class="next"><button class="btn btn-secondary"><i class="fas fa-angle-right"> </i></button></div>
+    <div id="pagination">    
+        <?php pagination("subject"); ?>
     </div>
 </section>
