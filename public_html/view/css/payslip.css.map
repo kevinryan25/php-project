@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACI,WAAE;EACE,OAAO,EAAE,KAAK",
+"sources": ["../scss/payslip.scss"],
+"names": [],
+"file": "payslip.css"
+}

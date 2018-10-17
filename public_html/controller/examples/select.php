@@ -4,7 +4,6 @@
 */
 
 require_once "../includes/db.php"; // Inclusion des fonctions utilitaires
-
 $data = $DB->getData("SELECT * FROM subject"); // Sélection des données
 
 /* Affichage des données */

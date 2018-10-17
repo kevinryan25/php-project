@@ -2,19 +2,21 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Projet php eni 1</title>
+    <title>Projet php eni 1df</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="stylesheet" href="/ui/css/main.css" />
-    <link rel="stylesheet" href="/ui/css/payslip.css" />
-    <link rel="stylesheet" href="/ui/css/normalize.css" />
-    <link rel="stylesheet" href="/ui/fontawesome/css/fontawesome-all.min.css" />
-    <script src="/ui/scripts/jquery-3.2.1.slim.min.js"></script>
-    <script src="/ui/scripts/ui.js"></script>
+    <link rel="stylesheet" href="/view/css/main.css" />
+    <link rel="stylesheet" href="/view/css/payslip.css" />
+    <link rel="stylesheet" href="/view/css/normalize.css" />
+    <link rel="stylesheet" href="/view/fontawesome/css/fontawesome-all.min.css" />
+    <script src="/view/scripts/jquery-3.2.1.slim.min.js"></script>
+    <script src="/view/scripts/ui.js"></script>
 </head>
 
 <body class="background-light">
-    <?php include "ui/modules/main-menu.php"; ?>
+    <?php include "view/modules/main-menu.php"; ?>
     <main class="background-light vertical-gradient">
+        <?php include "view/modules/content.php"; ?>
+        <!--
         <h1>Professeur</h1>
         <section>
             <div id="edition-form">
@@ -62,6 +64,7 @@
                         pdf</span></button><button class="btn btn-secondary"><i class="fas fa-file-excel icon"></i><span>Télecharger
                         pdf</span></button></div>
         </section>
+        -->
     </main>
 </body>
 
