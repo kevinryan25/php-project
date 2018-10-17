@@ -521,29 +521,29 @@ html {
   /*
       Row count
   */
-  #row-count {
+  .row-count {
     text-align: center; }
-    #row-count select {
+    .row-count select {
       margin: 0.5em;
       display: inline-block; }
   
   /*
       Pagination
   */
-  #pagination {
+  .pagination {
     padding: 3em;
     display: grid;
     grid-template-columns: max-content auto max-content; }
-    #pagination .pages {
+    .pagination .pages {
       display: flex;
       justify-content: center; }
   
   /*
       Selection controls
   */
-  #selection-controls, #export {
+  .selection-controls, .export {
     padding: 3em; }
-    #selection-controls > *, #export > * {
+    .selection-controls > *, .export > * {
       margin: 0.2em; }
   
   /*# sourceMappingURL=main.css.map */

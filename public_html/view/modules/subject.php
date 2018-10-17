@@ -10,13 +10,13 @@
     </ul>
 </nav>
 <section>
-    <div id="row-count">
+    <div class="row-count">
         <?php resultsperPage(); ?>
     </div>
-    <div id="pagination">
+    <div class="pagination">
         <?php pagination("subject"); ?>
     </div>
-    <div id="selection-controls"><button class="btn btn-tertiary"><i class="icon fas fa-trash-alt"></i><span>Supprimer
+    <div class="selection-controls"><button class="btn btn-tertiary"><i class="icon fas fa-trash-alt"></i><span>Supprimer
                 la sélection</span></button><button class="btn btn-primary"><i class="icon fas fa-plus"></i><span>Ajouter
                 un élément</span></button></div>
     <table>
@@ -32,7 +32,7 @@
             <?php printSubjects(); ?>
         </tbody>
     </table>
-    <div id="pagination">    
+    <div class="pagination">    
         <?php pagination("subject"); ?>
     </div>
 </section>
