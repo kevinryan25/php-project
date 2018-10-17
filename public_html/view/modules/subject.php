@@ -20,11 +20,6 @@
     </div>
     <div id="pagination">
         <?php pagination("subject"); ?>
-        <div class="previous"><button class="btn btn-secondary"><i class="fas fa-angle-left"></i></button></div>
-        <div class="pages"><span class="btn btn-secondary active">1</span><span class="btn btn-secondary">2</span><span
-                class="btn btn-secondary">3</span><span class="btn btn-secondary disabled">...</span><span class="btn btn-secondary">23</span><span
-                class="btn btn-secondary">24</span></div>
-        <div class="next"><button class="btn btn-secondary"><i class="fas fa-angle-right"></i></button></div>
     </div>
     <div id="selection-controls"><button class="btn btn-tertiary"><i class="icon fas fa-trash-alt"></i><span>Supprimer
                 la sélection</span></button><button class="btn btn-primary"><i class="icon fas fa-plus"></i><span>Ajouter

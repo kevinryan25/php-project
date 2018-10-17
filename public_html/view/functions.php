@@ -49,5 +49,37 @@ function pagination($table){
     $data = $DB->getData("SELECT COUNT(*) as len FROM $table");
     $len = $data[0][0];
     $pages = ($len / $resultsPerPage);
-    $currentPage = ($_GET['page'])
-}
+    $currentPage = isset($_GET['page'])?$_GET['page']:0;
+
+    $dotted = false;
+    echo '<div class="previous">';
+    if($currentPage > 0)
+        echo '<a class="btn btn-secondary" href="?page='.($currentPage-1).'"><i class="fas fa-angle-left"></i></a>';
+    echo '</div>';
+    echo '<div class="pages">';
+    for($i = 0; $i < $pages; $i++){
+        $p = $i+1;
+        if(abs($i - $currentPage) < 2){
+            if($i == $currentPage){
+                echo "<span class='btn btn-secondary active'>$p</span>";
+            }else{
+                echo "<a class='btn btn-secondary' href='?page=$i'>$p</a>";
+            }
+        }else if($i < 3){
+            echo "<a class='btn btn-secondary' href='?page=$i'>$p</a>";
+        }else if($i+2 >= $pages){
+            echo "<a class='btn btn-secondary' href='?page=$i'>$p</a>";
+        }else{
+            if($dotted) continue;
+            echo "<span class='btn btn-secondary btn-disabled'>...</span>";
+            $dotted = true;
+            continue;
+        }
+        $dotted = false;
+    }
+    echo '</div>';
+
+    echo '<div class="next">';
+    if($currentPage+1 < $pages)
+        echo '<a class="btn btn-secondary" href="?page='.($currentPage+1).'"><i class="fas fa-angle-right"></i></a>';
+    echo '</div>';}

@@ -5,6 +5,7 @@
     <title>Projet php eni 1df</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="stylesheet" href="/view/css/main.css" />
+    <link rel="stylesheet" href="/view/css/ext.css" />
     <link rel="stylesheet" href="/view/css/payslip.css" />
     <link rel="stylesheet" href="/view/css/normalize.css" />
     <link rel="stylesheet" href="/view/fontawesome/css/fontawesome-all.min.css" />
