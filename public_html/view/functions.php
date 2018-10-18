@@ -38,6 +38,7 @@ function printSubjects(){
         <td><input type="checkbox" /></td>
         <td> <?php echo $e['id']; ?></td>
         <td> <?php echo utf8_encode($e['name']); ?></td>
+        <td> <?php echo utf8_encode($e['hrs']); ?> heures</td>
         <td class="controls"><button class="btn btn-tertiary btn-rounded"><i class="fas fa-trash-alt"></i></button><button
                 class="btn btn-quaternary btn-rounded"><i class="fas fa-edit"></i></button></td>
     </tr><?php

@@ -25,6 +25,7 @@
                 <td><input type="checkbox" /></td>
                 <td>Id</td>
                 <td>Nom</td>
+                <td>Volume horaire</td>
                 <td> </td>
             </tr>
         </thead>
