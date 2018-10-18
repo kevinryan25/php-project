@@ -13,12 +13,23 @@ function printTeachers(){
     
     ?><tr>
         <td><input type="checkbox" /></td>
-        <td> <?php echo $e['id']; ?></td>
-        <td> <?php echo utf8_encode($e['name']); ?></td>
-        <td> <?php echo $e['salary']; ?> €/hr</td>
-        <td class="controls"><button class="btn btn-tertiary btn-rounded"><i class="fas fa-trash-alt"></i></button><button
-                class="btn btn-quaternary btn-rounded"><i class="fas fa-edit"></i></button><button class="btn btn-primary btn-rounded"><i
-                    class="fas fa-file-alt"></i></button></td>
+        <td><?php echo $e['id']; ?></td>
+        <td><?php echo $e['name']; ?></td>
+        <td><?php echo $e['salary']; ?></td>
+
+        <!--
+        <td><input type='text' class='control background-secondary' placeholder='Nom du professeur' value='<?php echo $e['name']; ?>'></td>
+        <td><input type='text' class='control background-secondary' placeholder='Nom du professeur' value='<?php echo $e['salary']; ?>'> €/hr</td>
+        -->
+
+        <td class="controls">
+            <!--<button class='btn btn-quaternary btn-rounded'><i class='fas fa-arrow-right'></i></button>-->
+            
+            <a class="btn btn-tertiary btn-rounded" href='/controller/delete.php?table=teacher&id=<?php echo $e['id']; ?>'><i class="fas fa-trash-alt"></i></a>
+            <button class="btn btn-quaternary btn-rounded"><i class="fas fa-edit"></i></button>
+            <button class="btn btn-primary btn-rounded"><i class="fas fa-file-alt"></i></button>
+            
+        </td>
     </tr><?php
 
     }
@@ -39,8 +50,9 @@ function printSubjects(){
         <td> <?php echo $e['id']; ?></td>
         <td> <?php echo utf8_encode($e['name']); ?></td>
         <td> <?php echo utf8_encode($e['hrs']); ?> heures</td>
-        <td class="controls"><button class="btn btn-tertiary btn-rounded"><i class="fas fa-trash-alt"></i></button><button
-                class="btn btn-quaternary btn-rounded"><i class="fas fa-edit"></i></button></td>
+        <td class="controls">
+            <a class="btn btn-tertiary btn-rounded" href='/controller/delete.php?table=subject&id=<?php echo $e['id']; ?>'><i class="fas fa-trash-alt"></i></a>
+            <button class="btn btn-quaternary btn-rounded"><i class="fas fa-edit"></i></button></td>
     </tr><?php
 
     }

@@ -16,9 +16,9 @@
     <div class="pagination">
         <?php pagination("subject"); ?>
     </div>
-    <div class="selection-controls"><button class="btn btn-tertiary"><i class="icon fas fa-trash-alt"></i><span>Supprimer
-                la sélection</span></button><button class="btn btn-primary"><i class="icon fas fa-plus"></i><span>Ajouter
-                un élément</span></button></div>
+    <div class="selection-controls">
+        <?php include 'view/modules/insert-form.php'; ?>
+    </div>
     <table>
         <thead>
             <tr>
