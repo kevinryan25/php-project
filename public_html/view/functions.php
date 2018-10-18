@@ -16,15 +16,7 @@ function printTeachers(){
         <td class='id'><?php echo $e['id']; ?></td>
         <td class='name'><?php echo $e['name']; ?></td>
         <td class='salary'><?php echo $e['salary']; ?></td>
-
-        <!--
-        <td><input type='text' class='control background-secondary' placeholder='Nom du professeur' value='<?php echo $e['name']; ?>'></td>
-        <td><input type='text' class='control background-secondary' placeholder='Nom du professeur' value='<?php echo $e['salary']; ?>'> €/hr</td>
-        -->
-
         <td class="controls">
-            <!--<button class='btn btn-quaternary btn-rounded'><i class='fas fa-arrow-right'></i></button>-->
-            
             <a class="btn btn-tertiary btn-rounded" href='/controller/delete.php?table=teacher&id=<?php echo $e['id']; ?>'><i class="fas fa-trash-alt"></i></a>
             <button class="btn btn-quaternary btn-rounded edit"><i class="fas fa-edit"></i></button>
             <button class="btn btn-primary btn-rounded"><i class="fas fa-file-alt"></i></button>
@@ -47,12 +39,12 @@ function printSubjects(){
     
     ?><tr>
         <td><input type="checkbox" /></td>
-        <td> <?php echo $e['id']; ?></td>
-        <td> <?php echo utf8_encode($e['name']); ?></td>
-        <td> <?php echo utf8_encode($e['hrs']); ?> heures</td>
+        <td class='id'> <?php echo $e['id']; ?></td>
+        <td class='name'> <?php echo utf8_encode($e['name']); ?></td>
+        <td class='hrs'> <?php echo $e['hrs']; ?></td>
         <td class="controls">
             <a class="btn btn-tertiary btn-rounded" href='/controller/delete.php?table=subject&id=<?php echo $e['id']; ?>'><i class="fas fa-trash-alt"></i></a>
-            <button class="btn btn-quaternary btn-rounded"><i class="fas fa-edit"></i></button></td>
+            <button class="btn btn-quaternary btn-rounded edit"><i class="fas fa-edit"></i></button></td>
     </tr><?php
 
     }

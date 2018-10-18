@@ -80,28 +80,43 @@ $(function(){
 
 const switchUpdateForm = ($tr)=>{
     $nameInputTD = $(document.createElement('td')).addClass('name');
-        $salaryInputTD = $(document.createElement('td')).addClass('salary');
-        $controlsTD = $(document.createElement('td')).addClass('controls');
-        $nameInput = $(document.createElement('input')).addClass('control background-light').attr('type', 'text');
-        $salaryInput = $(document.createElement('input')).addClass('control background-light').attr('type', 'number');
+        if(table == 'teacher'){
+            $salaryInputTD = $(document.createElement('td')).addClass('salary');
+            $controlsTD = $(document.createElement('td')).addClass('controls');
+            $nameInput = $(document.createElement('input')).addClass('control background-light').attr('type', 'text');
+            $salaryInput = $(document.createElement('input')).addClass('control background-light').attr('type', 'number');
+        }else if(table == 'subject'){
+            $hrsInputTD = $(document.createElement('td')).addClass('hrs');
+            $controlsTD = $(document.createElement('td')).addClass('controls');
+            $nameInput = $(document.createElement('input')).addClass('control background-light').attr('type', 'text');
+            $hrsInput = $(document.createElement('input')).addClass('control background-light').attr('type', 'number');
+        }
 
         const id = $tr.children('.id').text();
         const name = $tr.children('.name').text();
         let salary, hrs;
-        if(table === 'teacher')
+        if(table === 'teacher'){
             salary = $tr.children('.salary').text();
-        else if(table === 'subject')
+            $salaryInput.val(salary)
+        }else if(table === 'subject'){
             hrs = $tr.children('.hrs').text();
-
-        $nameInput.val(name)
-        $salaryInput.val(salary)
+            $nameInput.val(name)
+            $hrsInput.val(parseInt(hrs));
+        }
 
         $btn = $(document.createElement('button')).addClass('btn btn-quaternary btn-rounded');
         $i = $(document.createElement('i')).addClass('fas fa-arrow-right');
 
-        $btn[0].ref = {
-            $nameInput: $nameInput,
-            $salaryInput: $salaryInput
+        if(table === 'teacher'){
+            $btn[0].ref = {
+                $nameInput: $nameInput,
+                $salaryInput: $salaryInput
+            }
+        }else if(table === 'subject'){
+            $btn[0].ref = {
+                $nameInput: $nameInput,
+                $hrsInput: $hrsInput
+            }
         }
         
 
@@ -112,7 +127,11 @@ const switchUpdateForm = ($tr)=>{
         })
 
         $tr.append($nameInputTD.append($nameInput));
-        $tr.append($salaryInputTD.append($salaryInput));
+        if(table == 'teacher'){
+            $tr.append($salaryInputTD.append($salaryInput));
+        }else if(table == 'subject'){
+            $tr.append($hrsInputTD.append($hrsInput));
+        }
         $tr.append($controlsTD.append($btn.append($i)));
 
         $btn.$nameInput = $nameInput;
@@ -127,6 +146,9 @@ const switchUpdateForm = ($tr)=>{
             if(table === 'teacher'){
                 url+= "&name="+$(this.ref.$nameInput).val();
                 url+= "&salary="+$(this.ref.$salaryInput).val();
+            }else if(table == 'subject'){
+                url+= "&name="+$(this.ref.$nameInput).val();
+                url+= "&hrs="+$(this.ref.$hrsInput).val();
             }
             window.location = (url)
         })
