@@ -5,11 +5,12 @@ console.log(mixed.length);
 var courses = [];
 
 var i = 0;
+
 mixed.forEach((me)=>{
-    var course = [me];
+    var course = [];
     subjects.forEach((se)=>{
         var shortened = se.substr(0, se.length - 5).toLowerCase();
-        var mixed = me.substr(0, me.length - 1);
+        var mixed = me.substr(0, me.length - 1).toLowerCase();
         if(mixed == shortened){
             course.push(se);
             i++;
@@ -17,4 +18,12 @@ mixed.forEach((me)=>{
     })
     courses.push(course);
 })
-console.log(courses);
+
+
+
+var years = ['2014', '2015', '2016', '2017', '2018'];
+for(var i = 0; i < courses.length; i++){
+    var course = courses[i];
+    console.log(course);
+
+}
