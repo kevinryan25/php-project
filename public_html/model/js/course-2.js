@@ -25,5 +25,5 @@ var years = ['2014', '2015', '2016', '2017', '2018'];
 for(var i = 0; i < courses.length; i++){
     var course = courses[i];
     console.log(course);
-
+    
 }
