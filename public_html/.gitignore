@@ -1,1 +1,2 @@
-*.log
+access.log
+error.log

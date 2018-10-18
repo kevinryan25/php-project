@@ -94,13 +94,13 @@ const switchUpdateForm = ($tr)=>{
 
         const id = $tr.children('.id').text();
         const name = $tr.children('.name').text();
+        $nameInput.val(name)
         let salary, hrs;
         if(table === 'teacher'){
             salary = $tr.children('.salary').text();
             $salaryInput.val(salary)
         }else if(table === 'subject'){
             hrs = $tr.children('.hrs').text();
-            $nameInput.val(name)
             $hrsInput.val(parseInt(hrs));
         }
 
@@ -138,7 +138,7 @@ const switchUpdateForm = ($tr)=>{
         $btn.click(function(e){
 
             $tr = $(this).parent().parent();
-            let id = $tr.children('.id').text();
+            let id = parseInt($tr.children('.id').text());
             let name = $tr.children('.name input');
             let hrs = $tr.children('.salary input').val()
 

@@ -39,9 +39,9 @@ function printSubjects(){
     
     ?><tr>
         <td><input type="checkbox" /></td>
-        <td class='id'> <?php echo $e['id']; ?></td>
-        <td class='name'> <?php echo utf8_encode($e['name']); ?></td>
-        <td class='hrs'> <?php echo $e['hrs']; ?></td>
+        <td class='id'><?php echo $e['id']; ?></td>
+        <td class='name'><?php echo utf8_encode($e['name']); ?></td>
+        <td class='hrs'><?php echo $e['hrs']; ?></td>
         <td class="controls">
             <a class="btn btn-tertiary btn-rounded" href='/controller/delete.php?table=subject&id=<?php echo $e['id']; ?>'><i class="fas fa-trash-alt"></i></a>
             <button class="btn btn-quaternary btn-rounded edit"><i class="fas fa-edit"></i></button></td>

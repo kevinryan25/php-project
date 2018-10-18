@@ -10,5 +10,6 @@ foreach($_GET as $key => $value){
     $quotes = is_string($value)?'"':'';
     $sql.= ($i++>0?', ':'').$key."=".$quotes.$value.$quotes;
 }
+$sql.= "WHERE id=$id";
 $DB->query($sql);
 header('Location: '.$_SERVER['HTTP_REFERER']);
