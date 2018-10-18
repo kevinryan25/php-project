@@ -1,9 +1,8 @@
 let table;
 $(function(){
-
     if(window.location.href.match(/\/teacher/)) table = 'teacher';
     if(window.location.href.match(/\/subject/)) table = 'subject';
-
+   
 
     /*
         Searchbar
