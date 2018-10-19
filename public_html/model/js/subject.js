@@ -12,3 +12,4 @@ subjects.forEach((e)=>{
 })
 SQL+= ";";
 console.log(SQL);
+
