@@ -43,7 +43,7 @@ $(function(){
         });
     }
     $.ajax({
-        url: 'controller/volumeHoraire.php',
+        url: 'controller/volumeHoraire.php?year=2018',
         type: 'get',
         dataType: 'json',
         success: function (data) {

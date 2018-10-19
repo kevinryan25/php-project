@@ -19,7 +19,7 @@ function printTeachers(){
         <td class="controls">
             <a class="btn btn-tertiary btn-rounded" href='/controller/delete.php?table=teacher&id=<?php echo $e['id']; ?>'><i class="fas fa-trash-alt"></i></a>
             <button class="btn btn-quaternary btn-rounded edit"><i class="fas fa-edit"></i></button>
-            <button class="btn btn-primary btn-rounded"><i class="fas fa-file-alt"></i></button>
+            <a class="btn btn-primary btn-rounded" href="payslip?teacher=<?php echo $e['id']; ?>"><i class="fas fa-file-alt"></i></a>
             
         </td>
     </tr><?php
@@ -137,3 +137,30 @@ function pagination($table){
     if($currentPage+1 < $pages)
         echo '<a class="btn btn-secondary" href="?page='.($currentPage+1).'&shown='.$resultsPerPage.'"><i class="fas fa-angle-right"></i></a>';
     echo '</div>';}
+
+function printTeacherName($teacherId){
+    global $DB;
+    $name = ($DB->getData("SELECT name FROM teacher WHERE id=$teacherId"))[0]['name'];
+    echo $name;
+}
+
+function printSalaryTable($teacherId){
+    global $DB;
+    $data = $DB->getData("SELECT subject.name AS subject, subject.hrs AS hrs, subject.hrs*teacher.salary AS salary FROM subject INNER JOIN course ON course.subject = subject.id INNER JOIN teacher ON teacher.id = course.teacher WHERE teacher.id=$teacherId");
+    $sum = 0;
+    foreach($data as $key => $e) :
+        $sum+= $e['salary'];
+    ?>
+    <tr>
+        <td><?php echo $e['subject']; ?></td>
+        <td><?php echo $e['hrs']; ?> heures</td>
+        <td><?php echo $e['salary']; ?> €</td>
+    </tr>
+
+    <?php
+    endforeach;
+    ?>
+        <td colspan='2'>Total :</td>
+        <td><?php echo $sum; ?> €</td>
+    <?php
+}

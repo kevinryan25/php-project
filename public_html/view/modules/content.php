@@ -11,4 +11,6 @@ if(preg_match('/^\/(index\.(php|html))?$/', $URI)){
     include "view/modules/subject.php";
 }else if(preg_match('/\/course/', $URI)){
     include "view/modules/course.php";
+}else if(preg_match('/\/payslip/', $URI)){
+    include "view/modules/payslip.php";
 }
