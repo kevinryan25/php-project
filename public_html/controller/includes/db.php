@@ -43,7 +43,7 @@ class DB{
         while($data = $response->fetch()){
             $item = array();
             foreach($data as $key => $value){
-                $item[$key] = $value;
+                $item[$key] = utf8_encode($value);
             }
             $output[count($output)] = $item;
         }
