@@ -58,18 +58,18 @@ function printCourse(){
     $offset = $currentPage * $resultsPerPage;
     $limit = $resultsPerPage;
 
-    $data = $DB->query("SELECT teacher.name as teacher, subject.name as subject, teacher.salary as salary, subject.hrs as hrs, teacher.salary * subject.hrs as payment FROM course INNER JOIN teacher ON course.teacher = teacher.id INNER JOIN subject ON course.subject = subject.id LIMIT $limit OFFSET $offset");
+    $data = $DB->query("SELECT teacher.name as teacher, teacher.id as teacherid, subject.name as subject, subject.id as subjectid, teacher.salary as salary, subject.hrs as hrs, teacher.salary * subject.hrs as payment, year FROM course INNER JOIN teacher ON course.teacher = teacher.id INNER JOIN subject ON course.subject = subject.id LIMIT $limit OFFSET $offset");
     foreach($data as $e){
         ?><tr>
             <td><input type="checkbox" /></td>
-            <td class='teacher'><?php echo $e['teacher']; ?></td>
+            <td class='teacher'><?php echo utf8_encode($e['teacher']); ?></td>
             <td class='subject'><?php echo utf8_encode($e['subject']); ?></td>
             <td class='salary'><?php echo $e['salary']; ?></td>
             <td class='hrs'><?php echo $e['hrs']; ?></td>
             <td class='payment'><?php echo $e['payment']; ?></td>
+            <td class='year'><?php echo $e['year']; ?></td>
             <td class="controls">
-                <a class="btn btn-tertiary btn-rounded" href='/controller/delete.php?table=subject&id=<?php echo $e['id']; ?>'><i class="fas fa-trash-alt"></i></a>
-                <button class="btn btn-quaternary btn-rounded edit"><i class="fas fa-edit"></i></button></td>
+                <a class="btn btn-tertiary btn-rounded" href='/controller/deleteCourse.php?teacher=<?php echo $e['teacherid']; ?>&subject=<?php echo $e['subjectid']; ?>&year=<?php echo $e['year']; ?>'><i class="fas fa-trash-alt"></i></a>
         </tr><?php
     }
 

@@ -22,6 +22,8 @@
                 <td>Taux horaire</td>
                 <td>Volume horaire</td>
                 <td>Salaire</td>
+                <td>Année</td>
+                <td></td>
             </tr>
         </thead>
         <tbody>
