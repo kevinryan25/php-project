@@ -50,6 +50,31 @@ function printSubjects(){
     }
 }
 
+function printCourse(){
+    global $DB;
+    global $resultsPerPage;
+    global $currentPage;
+
+    $offset = $currentPage * $resultsPerPage;
+    $limit = $resultsPerPage;
+
+    $data = $DB->query("SELECT teacher.name as teacher, subject.name as subject, teacher.salary as salary, subject.hrs as hrs, teacher.salary * subject.hrs as payment FROM course INNER JOIN teacher ON course.teacher = teacher.id INNER JOIN subject ON course.subject = subject.id LIMIT $limit OFFSET $offset");
+    foreach($data as $e){
+        ?><tr>
+            <td><input type="checkbox" /></td>
+            <td class='teacher'><?php echo $e['teacher']; ?></td>
+            <td class='subject'><?php echo utf8_encode($e['subject']); ?></td>
+            <td class='salary'><?php echo $e['salary']; ?></td>
+            <td class='hrs'><?php echo $e['hrs']; ?></td>
+            <td class='payment'><?php echo $e['payment']; ?></td>
+            <td class="controls">
+                <a class="btn btn-tertiary btn-rounded" href='/controller/delete.php?table=subject&id=<?php echo $e['id']; ?>'><i class="fas fa-trash-alt"></i></a>
+                <button class="btn btn-quaternary btn-rounded edit"><i class="fas fa-edit"></i></button></td>
+        </tr><?php
+    }
+
+}
+
 $resultsPerPage;
 function resultsPerPage(){
     global $resultsPerPage;

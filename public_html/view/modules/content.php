@@ -9,4 +9,6 @@ if(preg_match('/^\/(index\.(php|html))?$/', $URI)){
     include "view/modules/teacher.php";
 }else if(preg_match('/\/subject/', $URI)){
     include "view/modules/subject.php";
+}else if(preg_match('/\/course/', $URI)){
+    include "view/modules/course.php";
 }
