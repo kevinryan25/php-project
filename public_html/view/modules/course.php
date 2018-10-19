@@ -9,9 +9,6 @@
     <div class="pagination">
         <?php pagination("subject"); ?>
     </div>
-    <div class="selection-controls">
-        <?php include 'view/modules/insert-form.php'; ?>
-    </div>
 
     <table>
         <thead>
